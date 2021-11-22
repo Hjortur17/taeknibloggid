@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/um-siðuna', [PageController::class, 'about']);
-Route::get('/pistlar', [PostController::class, 'index']);
-Route::get('/pistlar/{slug}', [PostController::class, 'show']);
+Route::get('/bloggið', [PostController::class, 'index']);
+Route::get('/bloggið/{slug}', [PostController::class, 'show']);
 

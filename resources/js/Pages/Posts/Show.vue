@@ -1,4 +1,9 @@
 <template>
+    <Head>
+        <title>{{ post.title }}</title>
+        <meta type="description" content="Information from the homepage" head-key="description">
+    </Head>
+
     <article class="max-w-screen-xl mx-auto">
         <header class="max-w-screen-lg mx-auto">
             <h1 class="text-center text-5xl font-black leading-tight pb-6">{{ post.title }}</h1>
@@ -19,8 +24,8 @@
         </header>
 
         <section class="w-full py-16 text-right space-y-4">
-            <img :src="post.img_url" alt="" class="w-full image-height object-cover object-center select-none">
-            <small class="uppercase text-gray-500 text-xs link"><a :href="post.img_url"> © {{ post.img_author }}, Unsplash</a></small>
+            <img :src="post.images[0].url" alt="" class="w-full image-height object-cover object-center select-none">
+            <small class="uppercase text-gray-500 text-xs link"><a :href="post.images[0].author_url"> © {{ post.images[0].author_name }}, Unsplash</a></small>
         </section>
 
         <section class="max-w-screen-lg mx-auto whitespace-pre-line text-justify" v-html="markdownToHtml"></section>

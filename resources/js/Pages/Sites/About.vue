@@ -1,4 +1,9 @@
 <template>
+    <Head>
+        <title>Um síðuna</title>
+        <meta type="description" content="Information from the homepage" head-key="description">
+    </Head>
+
     <section class="max-w-screen-lg mx-auto space-y-32">
         <div>
             <h2 class="text-center text-6xl mb-6">Um síðuna</h2>

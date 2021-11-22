@@ -15,7 +15,7 @@ class PostController extends Controller
                     ->when(Request::input('leita'), function ($query, $search) {
                         $query->where('title', 'like', "%{$search}%");
                     })
-                    ->with('tags')
+                    ->with(['tags', 'images'])
                     ->get()
                     ->transform(function ($post) {
                         return [
@@ -25,7 +25,8 @@ class PostController extends Controller
                             'created_at' => $post->created_at,
                             'content' => $post->content,
                             'img_url' => $post->img_url,
-                            'tags' => $post->tags
+                            'tags' => $post->tags,
+                            'image' => $post->images[0]
                         ];
                     }),
             'tags' => Tag::all(),
@@ -35,7 +36,7 @@ class PostController extends Controller
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->with('author')->with('tags')->firstOrFail();
+        $post = Post::where('slug', $slug)->with('author')->with(['tags', 'images'])->firstOrFail();
 
         return Inertia::render('Posts/Show', [
             'post' => $post

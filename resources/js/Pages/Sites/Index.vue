@@ -1,4 +1,9 @@
 <template>
+    <Head>
+        <title>Heim</title>
+        <meta type="description" content="Information from the homepage" head-key="description">
+    </Head>
+
     <section class="max-w-screen-xl mx-auto space-y-16">
         <large-preview :post="posts[0]"></large-preview>
 

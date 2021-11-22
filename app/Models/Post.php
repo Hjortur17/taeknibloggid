@@ -20,6 +20,11 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tag');
     }
 
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'post_image');
+    }
+
     public function getCreatedAtAttribute($date)
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->attributes['created_at'])->locale('is_IS')->isoFormat('Do MMM YYYY');

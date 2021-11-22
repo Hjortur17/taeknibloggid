@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use Inertia\Inertia;
 use App\Models\Post;
 
@@ -10,7 +9,7 @@ class PageController extends Controller
 {
     public function index() {
         return Inertia::render('Sites/Index', [
-            'posts' => Post::with('tags')
+            'posts' => Post::with(['tags', 'images'])
                     ->take(5)
                     ->get()
                     ->sortBy('updated_at')
@@ -21,8 +20,8 @@ class PageController extends Controller
                             'author' => $post->author,
                             'created_at' => $post->created_at,
                             'content' => $post->content,
-                            'img_url' => $post->img_url,
-                            'tags' => $post->tags
+                            'tags' => $post->tags,
+                            'image' => $post->images[0]
                         ];
                     })
         ]);

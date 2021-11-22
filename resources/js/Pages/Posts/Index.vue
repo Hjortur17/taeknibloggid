@@ -1,4 +1,9 @@
 <template>
+    <Head>
+        <title>Blogg</title>
+        <meta type="description" content="Information from the homepage" head-key="description">
+    </Head>
+
     <section class="max-w-screen-xl mx-auto">
         <div v-if="posts">
             <Preview :post="posts[1]"></Preview>
