@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return inertia('Homepage');
-});
+Route::get('/', [PageController::class, 'index']);
+Route::get('/um-siðuna', [PageController::class, 'about']);
+Route::get('/pistlar', [PostController::class, 'index']);
+Route::get('/pistlar/{slug}', [PostController::class, 'show']);
+
