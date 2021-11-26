@@ -19,14 +19,24 @@ h4, h5, h6 {
     font-weight: 700;
 }
 
+body {
+    background-color: #FAF9F7;
+    color: #27241D;
+}
+
 p {
     font-size: 16px;
 }
 
 ::selection {
-    @apply bg-purple-50 text-purple-900
+    background-color: #EAE2F8;
+    color: #653CAD;
 }
 
 .link {
-    @apply cursor-pointer hover:text-purple-600 transition-all duration-300
+    @apply cursor-pointer hover:text-primary transition-all duration-300
+}
+
+.tag {
+    @apply uppercase text-sm font-bold transition-all duration-300 cursor-pointer
 }

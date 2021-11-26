@@ -4,28 +4,30 @@
         <meta type="description" content="Information from the homepage" head-key="description">
     </Head>
 
-    <article class="max-w-screen-xl mx-auto">
-        <header class="max-w-screen-lg mx-auto">
-            <h1 class="text-center text-5xl font-black leading-tight pb-6">{{ post.title }}</h1>
+    <div class="pt-36 md:pt-40"></div>
 
-            <div class="flex space-x-4 items-center justify-center py-4">
+    <article class="max-w-screen-xl mx-auto px-6 md:px-0">
+        <header class="max-w-screen-lg mx-auto">
+            <h1 class="text-center text-4xl md:text-5xl font-black leading-tight">{{ post.title }}</h1>
+
+            <div class="flex space-x-4 items-center justify-center py-8">
                 <div class="w-auto">
-                    <img src="/css/images/me.png" alt="Animoji of me" class="w-16 h-16">
+                    <img src="/css/images/me.png" alt="Animoji of me" class="w-12 md:w-14 h-12 md:h-14">
                 </div>
                 <div class="w-auto">
-                    <h3>{{ post.author.name }}</h3>
-                    <p>Skrifað þann <span class="capitalize">{{ post.created_at }}</span></p>
+                    <h3 class="text-sm md:text-base">{{ post.author.name }}</h3>
+                    <p class="text-xs md:text-base">Skrifað þann <span class="capitalize">{{ post.created_at }}</span></p>
                 </div>
             </div>
 
             <div class="flex items-center justify-center" v-for="tag in post.tags">
-                <Link :href="'/pistlar?flokkur=' + tag.title" class="uppercase text-sm font-bold text-purple-700 hover:text-purple-300 transition-all duration-200 cursor-pointer">#{{ tag.title }}</Link>
+                <Link :href="'/pistlar?flokkur=' + tag.title" class="tag" :class="'text-' + tag.color + '-600 hover:text-' + tag.color + '-900'">#{{ tag.title }}</Link>
             </div>
         </header>
 
-        <section class="w-full py-16 text-right space-y-4">
-            <img :src="post.images[0].url" alt="" class="w-full image-height object-cover object-center select-none">
-            <small class="uppercase text-gray-500 text-xs link"><a :href="post.images[0].author_url"> © {{ post.images[0].author_name }}, Unsplash</a></small>
+        <section class="w-full text-right space-y-4 py-4 md:py-8">
+            <img :src="post.images[0].url" alt="" class="w-full image-height object-cover object-center select-none rounded-lg">
+            <small class="uppercase text-gray-500 text-xs link"><a :href="post.images[0].author_url" target="_blank"> © {{ post.images[0].author_name }}, Unsplash</a></small>
         </section>
 
         <section class="max-w-screen-lg mx-auto whitespace-pre-line text-justify" v-html="markdownToHtml"></section>
@@ -83,5 +85,20 @@ export default {
         line-height: 1;
         font-size: 1rem;
         margin-top: -1.125rem;
+    }
+
+    @media (max-width: 768px) {
+        section >>> ul {
+            line-height: 24px !important;
+        }
+
+        section >>> ol {
+            line-height: 24px !important;
+        }
+
+        section >>> p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
     }
 </style>

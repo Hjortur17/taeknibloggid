@@ -30,7 +30,7 @@ class PostController extends Controller
                         ];
                     }),
             'tags' => Tag::all(),
-            'filters' => Request::only(['search'])
+            'filters' => Request::only(['leita', 'flokkur'])
         ]);
     }
 

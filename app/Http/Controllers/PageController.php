@@ -10,20 +10,20 @@ class PageController extends Controller
     public function index() {
         return Inertia::render('Sites/Index', [
             'posts' => Post::with(['tags', 'images'])
-                    ->take(5)
+                    ->orderByDesc('created_at')
+                    ->take(6)
                     ->get()
-                    ->sortBy('updated_at')
                     ->transform(function ($post) {
-                        return [
-                            'slug' => $post->slug,
-                            'title' => $post->title,
-                            'author' => $post->author,
-                            'created_at' => $post->created_at,
-                            'content' => $post->content,
-                            'tags' => $post->tags,
-                            'image' => $post->images[0]
-                        ];
-                    })
+                            return [
+                                'slug' => $post->slug,
+                                'title' => $post->title,
+                                'author' => $post->author,
+                                'created_at' => $post->created_at,
+                                'content' => $post->content,
+                                'tags' => $post->tags,
+                                'image' => $post->images[0]
+                            ];
+                        })
         ]);
     }
 
