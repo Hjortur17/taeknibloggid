@@ -20258,7 +20258,11 @@ var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
     "class": "flex-1 text-right"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-sm text-gray-700"
-  }, "© 2021 Hjörtur Freyr")], -1
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("© 2021 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "https://hjorturfreyr.com",
+    target: "_blank",
+    "class": "link"
+  }, "Hjörtur Freyr")])], -1
   /* HOISTED */
   );
 });

@@ -42,7 +42,7 @@
         </div>
 
         <div class="flex-1 text-right">
-            <p class="text-sm text-gray-700">© 2021 Hjörtur Freyr</p>
+            <p class="text-sm text-gray-700">© 2021 <a href="https://hjorturfreyr.com" target="_blank" class="link">Hjörtur Freyr</a></p>
         </div>
     </footer>
 </template>
