@@ -24,5 +24,5 @@ createInertiaApp({
 });
 
 InertiaProgress.init({
-    color: 'rgba(167, 139, 250, 1)'
+    color: 'rgba(114, 75, 183, 1)'
 });

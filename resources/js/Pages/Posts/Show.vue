@@ -21,7 +21,7 @@
             </div>
 
             <div class="flex items-center justify-center" v-for="tag in post.tags">
-                <Link :href="'/pistlar?flokkur=' + tag.title" class="tag" :class="'text-' + tag.color + '-600 hover:text-' + tag.color + '-900'">#{{ tag.title }}</Link>
+                <Link :href="'/bloggið?flokkur=' + tag.title" class="tag" :class="'bg-' + tag.color + '-200 text-' + tag.color + '-700 hover:text-' + tag.color + '-900'">#{{ tag.title }}</Link>
             </div>
         </header>
 

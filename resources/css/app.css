@@ -30,7 +30,7 @@ p {
 
 ::selection {
     background-color: #EAE2F8;
-    color: #653CAD;
+    color: #724BB7;
 }
 
 .link {
@@ -38,5 +38,5 @@ p {
 }
 
 .tag {
-    @apply uppercase text-sm font-bold transition-all duration-300 cursor-pointer
+    @apply px-3 py-2 rounded-full uppercase text-xs font-bold transition-all duration-300 cursor-pointer hover:shadow
 }
