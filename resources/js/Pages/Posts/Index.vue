@@ -27,7 +27,7 @@
                 </span>
 
                 <input v-model="search" type="search"
-                       class="py-2 text-sm border-2 border-lighter bg-lighter rounded-md pl-10 ease-in-out duration-300 focus:outline-none focus:border-primary focus:bg-white"
+                       class="py-2 text-sm border-2 border-lighter bg-lighter rounded-md pl-10 ease-in-out duration-300 focus:outline-none focus:border-primary focus:bg-normal"
                        placeholder="Leita..." autocomplete="off">
 
                 <span class="absolute inset-y-0 right-0 flex items-center pr-2" v-show="search">

@@ -19517,7 +19517,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.search = $event;
     }),
     type: "search",
-    "class": "py-2 text-sm border-2 border-lighter bg-lighter rounded-md pl-10 ease-in-out duration-300 focus:outline-none focus:border-primary focus:bg-white",
+    "class": "py-2 text-sm border-2 border-lighter bg-lighter rounded-md pl-10 ease-in-out duration-300 focus:outline-none focus:border-primary focus:bg-normal",
     placeholder: "Leita...",
     autocomplete: "off"
   }, null, 512
