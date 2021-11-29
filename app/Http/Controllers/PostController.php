@@ -15,10 +15,11 @@ class PostController extends Controller
             'filters' => Request::all('leita', 'flokkur', 'höfundur'),
             'tags' => Tag::all(),
             'posts' => Post::with(['tags', 'images'])
+                ->orderBy('created_at')
                 ->filter(Request::only('leita', 'flokkur', 'höfundur'))
-                ->get()
-                ->transform(function ($post) {
-                    return [
+                ->paginate(12)
+                ->withQueryString()
+                ->through(fn ($post) => [
                         'slug' => $post->slug,
                         'title' => $post->title,
                         'author' => $post->author,
@@ -27,8 +28,7 @@ class PostController extends Controller
                         'img_url' => $post->img_url,
                         'tags' => $post->tags,
                         'image' => $post->images[0]
-                    ];
-                })
+                ])
         ]);
     }
 
