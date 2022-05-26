@@ -33,7 +33,8 @@
 
                 <span class="absolute inset-y-0 right-0 flex items-center pr-2" v-show="search">
                     <button type="submit"
-                            class="p-1 text-gray-500 fill-current focus:outline-none focus:shadow-outline">
+                            class="p-1 text-gray-500 fill-current focus:outline-none focus:shadow-outline"
+                            @click="clearSearch()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4"><!-- Font Awesome Pro 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path
                             d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"/></svg>
                     </button>
@@ -42,10 +43,10 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-8">
-            <small-preview v-for="post in posts.data" :key="post.title" :post="post"></small-preview>
+            <small-preview v-for="post in posts.data" :key="post.title" :post="post" />
         </div>
 
-        <Pagination :links="posts.links" />
+        <Pagination :links="posts.links" v-if="posts.data.length > 12" />
     </section>
 </template>
 
@@ -74,23 +75,33 @@ export default {
         }
     },
 
+    methods: {
+        clearSort() {
+            console.log("Halló heimur")
+        },
+
+        clearSearch() {
+            this.search = {};
+        }
+    },
+
     watch: {
         search: throttle(function (value) {
-            this.$inertia.get('/bloggið', {leita: value}, {
+            this.$inertia.get('/bloggið', (value ? {leita: value} : {}), {
                 preserveState: true,
                 replace: true
             });
         }, 500),
 
         sort: throttle(function (value) {
-            this.$inertia.get('/bloggið', {flokkur: value}, {
+            this.$inertia.get('/bloggið', (value ? {flokkur: value} : {}), {
                 preserveState: true,
                 replace: true
             });
         }, 500),
 
         author: throttle(function (value) {
-            this.$inertia.get('/bloggið', {höfundur: value}, {
+            this.$inertia.get('/bloggið', (value ? {höfundur: value} : {}), {
                 preserveState: true,
                 replace: true
             });

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex items-center justify-center space-x-4">
+    <div class="w-full flex items-center justify-center space-x-4 pt-16">
         <component
             :is="link.url ? 'link' : 'span'"
             v-for="link in links"

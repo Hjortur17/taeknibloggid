@@ -4,7 +4,7 @@
         <meta type="description" content="Information from the homepage" head-key="description">
     </Head>
 
-    <div class="pt-36 md:pt-40"></div>
+    <div class="pt-36 md:pt-48"></div>
 
     <article class="max-w-screen-xl mx-auto px-6 md:px-0">
         <header class="max-w-screen-lg mx-auto">
